@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Local Community Event Portal</title>
+<style>
+  /* ========== Task 3: Styling ========== */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 10px;
+  }
+  nav {
+    background: #007BFF;
+    padding: 1em;
+    text-align: center;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  #welcomeBanner {
+    background-color: #007BFF;
+    color: white;
+    padding: 1em;
+    margin: 1em 0;
+    text-align: center;
+    font-size: 1.3em;
+  }
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  .special-offer {
+    color: red;
+    font-weight: bold;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 1em auto;
+    width: 90%;
+    max-width: 900px;
+  }
+  caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  td {
+    padding: 5px;
+    text-align: center;
+  }
+  .event-image {
+    border: 3px solid #007BFF;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .event-image.enlarged {
+    transform: scale(2);
+    z-index: 10;
+    position: relative;
+  }
+  form {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 1em;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+  }
+  form div {
+    margin-bottom: 1em;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #confirmationMessage, #feeDisplay, #phoneValidationMsg, #charCount {
+    font-style: italic;
+    color: green;
+    margin-top: 0.5em;
+  }
+  #phoneValidationMsg.error {
+    color: red;
+  }
+  #videoStatus {
+    font-style: italic;
+    margin-top: 0.5em;
+    text-align: center;
+    color: green;
+  }
+  footer {
+    text-align: center;
+    margin: 2em 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+  #geoResult {
+    text-align: center;
+    margin-top: 1em;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home">Home</a> |
+  <a href="#events">Events</a> |
+  <a href="#registration">Register</a> |
+  <a href="#feedback">Feedback</a> |
+  <a href="#promoVideo">Promo Video</a> |
+  <a href="#contact">Contact</a> |
+  <a href="help.html" target="_blank" rel="noopener">Help</a>
+</nav>
+
+<!-- Main content -->
+<main>
+
+  <!-- Home / Welcome Banner -->
+  <section id="home">
+    <div id="welcomeBanner">
+      Welcome to the Local Community Event Portal! 
+      <span class="special-offer">Special Offer:</span> Register today and get a free event badge!
+    </div>
+  </section>
+
+  <!-- Events / Image Gallery -->
+  <section id="events">
+    <h2>Past Community Events</h2>
+    <table>
+      <caption>Community Event Gallery</caption>
+      <tr>
+        <td>
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=150&q=80" 
+               alt="Community BBQ Event" title="Community BBQ Event" 
+               class="event-image" />
+        </td>
+        <td>
+          <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=150&q=80" 
+               alt="Local Art Fair" title="Local Art Fair" 
+               class="event-image" />
+        </td>
+        <td>
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=150&q=80" 
+               alt="Summer Music Festival" title="Summer Music Festival" 
+               class="event-image" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=150&q=80" 
+               alt="Book Reading" title="Book Reading" 
+               class="event-image" />
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Event Registration Form -->
+  <section id="registration">
+    <h2>Register for an Event</h2>
+    <form id="registrationForm">
+      <div>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required autofocus />
+      </div>
+      <div>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com" required />
+      </div>
+      <div>
+        <label for="date">Event Date:</label>
+        <input type="date" id="date" name="date" required />
+      </div>
+      <div>
+        <label for="eventType">Event Type:</label>
+        <select id="eventType" name="eventType" required>
+          <option value="" disabled selected>Select an event</option>
+          <option value="bbq">Community BBQ</option>
+          <option value="artFair">Local Art Fair</option>
+          <option value="musicFest">Summer Music Festival</option>
+          <option value="charityRun">Charity Run</option>
+        </select>
+        <div id="feeDisplay"></div>
+      </div>
+      <div>
+        <label for="message">Message (optional):</label>
+        <textarea id="message" name="message" rows="4" placeholder="Any special requests or info"></textarea>
+      </div>
+      <button type="submit">Submit Registration</button>
+      <output id="confirmationMessage"></output>
+    </form>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback">
+    <h2>Event Feedback</h2>
+    <form id="feedbackForm">
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" />
+        <div id="phoneValidationMsg"></div>
+      </div>
+      <div>
+        <label for="feedbackEvent">Select Event to Give Feedback:</label>
+        <select id="feedbackEvent" name="feedbackEvent">
+          <option value="" disabled selected>Choose event</option>
+          <option value="bbq">Community BBQ</option>
+          <option value="artFair">Local Art Fair</option>
+          <option value="musicFest">Summer Music Festival</option>
+          <option value="charityRun">Charity Run</option>
+        </select>
+      </div>
+      <div>
+        <label for="feedbackMessage">Your Feedback:</label>
+        <textarea id="feedbackMessage" name="feedbackMessage" rows="5" placeholder="Write your feedback here"></textarea>
+        <div id="charCount">Characters: 0</div>
+      </div>
+      <button type="button" id="submitFeedback">Submit Feedback</button>
+      <div id="feedbackConfirmation"></div>
+    </form>
+  </section>
+
+  <!-- Video Invite -->
+  <section id="promoVideo">
+    <h2>Event Promo Video</h2>
+    <video id="eventVideo" width="320" height="240" controls oncanplay="videoReady()">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div id="videoStatus"></div>
+  </section>
+
+  <!-- Geolocation -->
+  <section id="location">
+    <h2>Find Nearby Events</h2>
+    <button id="findEventsBtn">Find Nearby Events</button>
+    <div id="geoResult"></div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: community@localcouncil.gov</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Address: 123 Community Lane, Hometown</p>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Local City Council</p>
+</footer>
+
+<script>
+  // ===== Task 7: Video oncanplay event handler =====
+  function videoReady() {
+    document.getElementById('videoStatus').textContent = "Video ready to play!";
+  }
+
+  // ===== Task 6: Double-click to enlarge images =====
+  document.querySelectorAll('.event-image').forEach(img => {
+    img.ondblclick = () => img.classList.toggle('enlarged');
+  });
+
+  // ===== Task 5 & 6: Registration form submission =====
+  const regForm = document.getElementById('registrationForm');
+  const confirmationMessage = document.getElementById('confirmationMessage');
+  const eventTypeSelect = document.getElementById('eventType');
+  const feeDisplay = document.getElementById('feeDisplay');
+
+  // Event fees by event type
+  const eventFees = {
+    bbq: "$10",
+    artFair: "$15",
+    musicFest: "$20",
+    charityRun: "$25"
+  };
+
+  // Show fee when event type changes and save to localStorage (Task 8)
+  eventTypeSelect.addEventListener('change', () => {
+    const selected = eventTypeSelect.value;
+    feeDisplay.textContent = selected ? `Event Fee: ${eventFees[selected]}` : "";
+    if (selected) {
+      localStorage.setItem('preferredEventType', selected);
+    }
+  });
+
+  // On page load, pre-select event type from localStorage if exists (Task 8)
+  window.addEventListener('load', () => {
+    const savedEvent = localStorage.getItem('preferredEventType');
+    if (savedEvent && eventFees.hasOwnProperty(savedEvent)) {
+      eventTypeSelect.value =
+
