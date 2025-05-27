@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Community Event Portal</title>
+
+    <!-- Internal CSS: body background -->
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <!-- Link External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <!-- Inline style: Red heading -->
+        <h1 style="color: red;">Welcome to Local Community Event Portal</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="help.html" target="_blank" class="nav-link">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <section id="home" class="eventCard">
+            <h2>About Our Community</h2>
+            <p class="highlight">Join events, connect with neighbors, and stay informed.</p>
+        </section>
+
+        <section id="events" class="eventCard">
+            <h2>Upcoming Events</h2>
+            <h3>Spring Festival</h3>
+            <p>Date: April 20, 2025</p>
+            <h3>Community Cleanup</h3>
+            <p>Date: May 15, 2025</p>
+        </section>
+
+        <section id="news" class="news-article">
+            <h2>Community Bulletin</h2>
+            <p>
+                Our local park renovation will begin soon. Volunteers are welcome!
+                Remember to register early for events to secure your spot.
+            </p>
+            <p>
+                Stay tuned for monthly newsletters and updates about city council
+                meetings.
+            </p>
+        </section>
+
+        <section id="contact" class="eventCard">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="you@example.com" required />
+                <br /><br />
+                <label for="message">Message:</label>
+                <textarea id="message" rows="4" placeholder="Write your message here"></textarea>
+                <br /><br />
+                <button type="submit" class="cta-button">Send</button>
+            </form>
+        </section>
+
+        <!-- Sample Table -->
+        <section>
+            <h2>Events Admin Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spring Festival</td>
+                        <td>April 20, 2025</td>
+                        <td>Central Park</td>
+                    </tr>
+                    <tr>
+                        <td>Community Cleanup</td>
+                        <td>May 15, 2025</td>
+                        <td>Riverside</td>
+                    </tr>
+                    <tr>
+                        <td>Farmers Market</td>
+                        <td>June 5, 2025</td>
+                        <td>Main Square</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Local Community Event Portal</p>
+    </footer>
+</body>
+</html>

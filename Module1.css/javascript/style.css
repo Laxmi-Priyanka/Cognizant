@@ -1,0 +1,35 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header styles */
+#mainHeader {
+  background: #007BFF;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Event card styles */
+.eventCard {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  background: white;
+}
+
+/* Form styles */
+form {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#formMessage {
+  margin-top: 10px;
+  color: green;
+}
